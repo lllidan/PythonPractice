@@ -1,18 +1,49 @@
+# -*- coding: utf-8 -*-
 """
-3¡¢Í¨¹ý¿¼ÊÔ
-¡¾ÌâÄ¿ÃèÊö¡¿Ð¡Ã÷Í¬Ñ§Òª²Î¼ÓÒ»³¡¿¼ÊÔ£¬¿¼ÊÔÒ»¹²ÓÐnµÀÌâÄ¿£¬Ð¡Ã÷±ØÐë×ö¶ÔÖÁÉÙ60%µÄÌâÄ¿²ÅÄÜÍ¨¹ý¿¼ÊÔ¡£
-¿¼ÊÔ½áÊøºó£¬Ð¡Ã÷¹ÀËã³öÃ¿Ìâ×ö¶ÔµÄ¸ÅÂÊ£¬p1,p2,...,pn¡£ÄãÄÜ°ïËûËã³öËûÍ¨¹ý¿¼ÊÔµÄ¸ÅÂÊÂð£¿
-Å£¿ÍÍø¡ª¡ª¹úÄÚ×î´óµÄ IT ±ÊÊÔÃæÊÔÌâ¿â
-4
-ÊäÈë
-ÊäÈëµÚÒ»ÐÐÒ»¸öÊýn£¨1<=n<=100£©£¬±íÊ¾ÌâÄ¿µÄ¸öÊý¡£µÚ¶þÐÐn¸öÕûÊý£¬p1,p2,...,pn¡£±íÊ¾Ð¡Ã÷ÓÐpi%µÄ¸Å
-ÂÊ×ö¶ÔµÚiÌâ¡££¨0<=pi<=100£©
-Êä³ö
-Ð¡Ã÷Í¨¹ý¿¼ÊÔµÄ¸ÅÂÊ£¬×îºó½á¹ûËÄÉáÎåÈë£¬±£ÁôÐ¡ÊýµãºóÎåÎ»¡£
-ÑùÀýÊäÈë
+3ã€é€šè¿‡è€ƒè¯•
+ã€é¢˜ç›®æè¿°ã€‘å°æ˜ŽåŒå­¦è¦å‚åŠ ä¸€åœºè€ƒè¯•ï¼Œè€ƒè¯•ä¸€å…±æœ‰né“é¢˜ç›®ï¼Œå°æ˜Žå¿…é¡»åšå¯¹è‡³å°‘60%çš„é¢˜ç›®æ‰èƒ½é€šè¿‡è€ƒè¯•ã€‚
+è€ƒè¯•ç»“æŸåŽï¼Œå°æ˜Žä¼°ç®—å‡ºæ¯é¢˜åšå¯¹çš„æ¦‚çŽ‡ï¼Œp1,p2,...,pnã€‚ä½ èƒ½å¸®ä»–ç®—å‡ºä»–é€šè¿‡è€ƒè¯•çš„æ¦‚çŽ‡å—ï¼Ÿ
+è¾“å…¥
+è¾“å…¥ç¬¬ä¸€è¡Œä¸€ä¸ªæ•°nï¼ˆ1<=n<=100ï¼‰ï¼Œè¡¨ç¤ºé¢˜ç›®çš„ä¸ªæ•°ã€‚ç¬¬äºŒè¡Œnä¸ªæ•´æ•°ï¼Œp1,p2,...,pnã€‚è¡¨ç¤ºå°æ˜Žæœ‰pi%çš„æ¦‚
+çŽ‡åšå¯¹ç¬¬ié¢˜ã€‚ï¼ˆ0<=pi<=100ï¼‰
+è¾“å‡º
+å°æ˜Žé€šè¿‡è€ƒè¯•çš„æ¦‚çŽ‡ï¼Œæœ€åŽç»“æžœå››èˆäº”å…¥ï¼Œä¿ç•™å°æ•°ç‚¹åŽäº”ä½ã€‚
+æ ·ä¾‹è¾“å…¥
 4
 50 50 50 50
-ÑùÀýÊä³ö
+æ ·ä¾‹è¾“å‡º
 0.31250
-Hint
 """
+num=int(input("è¯·è¾“å…¥è€ƒè¯•çš„é¢˜ç›®æ•°"));'è¾“å…¥é¢˜ç›®æ•°'
+a = []
+a.append(0)
+for i in range(1,num+1):
+    a.append(int(input("è¯·ä¾æ¬¡è¾“å…¥æ¯é“é¢˜åšå¯¹çš„æ¦‚çŽ‡")));
+dp = [[0 for col in range(105)] for row in range(105)]
+dp[0][0]=1
+for i in range(1,num+1):
+    dp[i][0]=dp[i-1][0] * (100.0-a[i])/100
+    print(dp[i][0])
+    for j in range(1,i+1):
+        dp[i][j]=dp[i-1][j] * (100.0-a[i])/100 +dp[i-1][j-1]*1.0*a[i]/100
+
+for i in range(1,num+1):
+    for j in range(0,i+1):
+        print("dp["+str(i)+"]["+str(j)+"]:"+str(dp[i][j]),end=" ")
+    print()
+begin =int((3*num+4)/5)
+print("è‡³å°‘è¦åšå¯¹"+str(begin)+"é“é¢˜")
+ans=0.0
+for i in range(begin,num+1):
+    ans+=dp[num][i]
+print("ä½ é€šè¿‡è€ƒè¯•çš„æ¦‚çŽ‡ä¸º:"+str(ans))
+
+
+
+
+
+
+
+
+
+
