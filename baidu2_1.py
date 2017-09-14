@@ -26,5 +26,8 @@ list.sort(prices)
 sortprices=set(prices)
 prices=list(sortprices)
 list.sort(prices)
-print(prices[2])
+if len(prices)>2:
+    print(prices[2])
+else:
+    print(-1)
 
