@@ -20,4 +20,10 @@ baca
 2、输入：qqq
 输出：271250
 """
-
+factor= [25 * 25 * 25 + 25 * 25 + 25 + 1, 25 * 25 + 25 + 1, 25 + 1, 1]
+inputStr=input("please input the code")
+length=len(inputStr)
+index=length-1
+for i in range(0,length) :
+    index += factor[i]*(ord(inputStr[i]) - ord('a'))
+print(index)
