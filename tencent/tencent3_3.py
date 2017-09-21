@@ -20,3 +20,23 @@ question:
 输出：6
 """
 
+n=int(input("input a number:"))
+flag=1
+prime=[]
+for i in range(2,n):
+    flag=1
+    for j in range(2,n//2):
+        if(i==j):
+            continue
+        if (i%j==0):
+            flag=0
+            break
+    if(flag==1):
+        prime.append(i)
+count=0
+for i in range(0,len(prime)):
+    for j in range(i,len(prime)):
+        if prime[i]+prime[j]==n:
+           count+=1
+print(count)
+
