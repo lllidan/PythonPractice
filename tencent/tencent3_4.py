@@ -34,3 +34,30 @@ gohash解码
 输出：001000
 """
 
+
+num=0
+def diguitest(left,right,target,count):
+    
+    temp=int((left+right)/2)
+    if temp==target:
+        print("count is "+str(count))
+        return 0
+    if target<temp:
+        count+=1
+        print(str(target)+"在区间的左侧，下次的区间缩小为：["+str(left)+","+str(temp-1)+"]")
+        diguitest(left,temp-1,target,count)
+    elif target>temp:
+        count+=1
+        print(str(target)+"在区间的右侧，下次的区间缩小为：["+str(temp+1)+","+str(right)+"]")
+        diguitest(temp+1,right,target,count)
+    if count>8:
+        print("error")
+        return -1
+    
+
+diguitest(-90,90,80,0)
+
+
+
+        
+    
