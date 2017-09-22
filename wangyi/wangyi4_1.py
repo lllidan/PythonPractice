@@ -23,3 +23,15 @@ A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有
 2 1 3
 """
 
+temp1=input().split()
+temp1=[int(i) for i in temp1]
+A=(temp1[0]+temp1[2])/2
+B=A-temp1[0]
+C=temp1[3]-B
+if A-int(A)==0 and B-int(B)==0 and C-int(C)==0 and A>0 and B>0 and C>0:
+    print(str(int(A))+" "+str(int(B))+" "+str(int(C)))
+else:
+    print("No")
+
+
+

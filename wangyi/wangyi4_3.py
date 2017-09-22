@@ -18,4 +18,22 @@ question:
 输出例子:
 223
 """
+nums=input().split()
+numx=[0 for i in range(len(nums[0]))]
+numy=[0 for i in range(len(nums[1]))]
+
+for i in range(len(nums[0])):
+    numx[len(nums[0])-i-1]=nums[0][i]
+for i in range(len(nums[1])):
+    numy[len(nums[1])-i-1]=nums[1][i]
+    
+sumx=0
+sumy=0
+for i in range(len(numx)):
+    sumx+=int(numx[i])*10**(len(numx)-1-i)
+for i in range(len(numy)):
+    sumy+=int(numy[i])*10**(len(numy)-1-i)
+count=str(sumx+sumy)
+for i in range(len(count)):
+    print(count[len(count)-1-i],end='')
 

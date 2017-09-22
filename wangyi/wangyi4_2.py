@@ -17,3 +17,15 @@ question:
 3
 """
 
+n=int(input("请输入想要购买的苹果数"))
+max8=100//8
+max6=100//6
+min=17
+for i in range(0,max8+1):
+    for j in range(0,max6+1):
+        if (8*i+6*j==n)and i+j<min:
+            min=i+j
+print(min)
+            
+            
+
