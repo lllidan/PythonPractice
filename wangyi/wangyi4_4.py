@@ -22,3 +22,15 @@ AABBCCAABB 不存在一个长度为3的连续子串包含'A','B','C',所以是�
 21
 """
 
+dp1=[0 for col in range(105)]
+dp2=[0 for col in range(105)]
+n=int(input())
+dp1[1]=0
+dp1[2]=3
+dp2[0]=1
+dp2[1]=3
+dp2[2]=6
+for i in range(3,n+1):
+    dp1[i] = dp1[i - 1] + dp2[i - 1]
+    dp2[i] = dp1[i - 1] * 2 + dp2[i - 1];
+print(dp1[n]+dp2[n])
