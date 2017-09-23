@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 """
 Created on Wed Sep 20 22:47:59 2017
 
@@ -22,4 +22,22 @@ question:
 输出例子:
 2
 """
-
+n=int(input())
+nums=input().split()
+nums=[int(i) for i in nums]
+l=0
+r=len(nums)-1
+step=0
+while l<r:
+    if nums[l]<nums[r]:
+        nums[l+1]+=nums[l]
+        step+=1
+        l+=1
+    elif nums[l]>nums[r]:
+        nums[r-1]+=nums[r]
+        step+=1
+        r-=1
+    else:
+        l+=1
+        r-=1
+print(step)
