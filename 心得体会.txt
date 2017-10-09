@@ -1,2 +1,0 @@
-1、 Python中的字符串不能用下表的方式改变摸个位置上的值
-	ep:a="abc" a[0]='c'#false 会报'str' object does not support item assignment的错误
