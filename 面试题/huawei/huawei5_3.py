@@ -18,4 +18,15 @@ I am Lisa
 样例输出：
 4
 """
+strings = input()
 
+words = strings.split(' ')
+
+word = words[-1]
+
+length = 0
+
+for i in word:
+    length =length + 1
+    
+print(length)
